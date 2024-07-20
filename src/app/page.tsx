@@ -1,44 +1,54 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const images = [
+    { src: '/01.png', alt: 'Image 1' },
+    { src: '/02.png', alt: 'Image 2' },
+    { src: '/03.png', alt: 'Image 3' },
+    { src: '/04.png', alt: 'Image 4' },
+    { src: '/05.png', alt: 'Image 5' },
+    { src: '/06.png', alt: 'Image 6' },
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change d'image toutes les 5 secondes
+
+    return () => clearInterval(interval); // Nettoie l'intervalle à la désactivation du composant
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <div className="lg:w-1/5 w-[25%]  fixed left-0 top-0 flex justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static rounded-[100%] lg:border lg:bg-gray-200 p-2 lg:dark:bg-zinc-800/30">
+          <img
+            src="LOGOVOLLEY.png"
+            alt="Logo Les 2 rivières Lanester Volley"
+            className="lg:w-full w-1/4"
+          />
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="w-full h-full justify-center relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
+        <div className="flex w-[500px] h-[500px]">
+          {images.map((image, index) => (
+            <Image
+              key={index}
+              className={`transition-opacity duration-1000 drop-shadow-[0_0_0.8rem_#149B4E70] ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+              src={image.src}
+              alt={image.alt}
+              objectFit="contain"
+              priority
+              layout="fill"
+            />
+          ))}
+        </div>
       </div>
-
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -47,13 +57,10 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            Horaires
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
+            De 6h du sbah jusqu'à ce que l'alarme du gymnase se lance
           </p>
         </a>
 
@@ -64,14 +71,27 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            Prix
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
+          <ul>
+            <li>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                <span className="font-bold">
+                  400€{' '}
+                </span>
+                l'année pour les nuls
+              </p>
+            </li>
+            <li>
+              <p className="m-0 max-w-[30ch] text-sm opacity-50">
+                <span className="font-bold">
+                  Gratuit{' '}
+                </span>
+                pour les mecs bouillants
+              </p>
+            </li>
+
+          </ul>
         </a>
 
         <a
@@ -81,13 +101,75 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            Réseaux
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
+          <p className="m-0 max-w-[30ch] text-sm opacity-50 font-bold [&>*]:after:content-['-']">
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Facebook{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Instagram{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Snapchat{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Twitter{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Thread{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              BeSport{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Tinder{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Fruitz{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              LeBonCoin{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Vinted{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              TooGooToGo{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Pornhub{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              France Travail{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              La CAF du Morbihan{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap pr-2">
+              Boulangerie Pedron{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              E.Leclerc Lanester{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Quai 9 Lanester{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Le Nemrut Kebab{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              India Café{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Boîte de nuit Le Passeport{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Parc Jules Ferry{' '}
+            </a>
+            <a href="#" className="hover:underline whitespace-nowrap  pr-2">
+              Le nouveau pont là{' '}
+            </a>
           </p>
         </a>
 
@@ -98,13 +180,10 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+            Ouais l'équipe
           </h2>
           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Ajoutez moi sur snap : FumeurDeShkeks56bzh
           </p>
         </a>
       </div>
