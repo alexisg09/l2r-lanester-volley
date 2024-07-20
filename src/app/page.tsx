@@ -60,7 +60,7 @@ export default function Home() {
             Horaires
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            De 6h du sbah jusqu'à ce que l'alarme du gymnase se lance
+            De 6h du sbah jusqu&apos;à ce que l&apos;alarme du gymnase se lance
           </p>
         </a>
 
@@ -79,7 +79,7 @@ export default function Home() {
                 <span className="font-bold">
                   400€{' '}
                 </span>
-                l'année pour les nuls
+                l&apos;année pour les nuls
               </p>
             </li>
             <li>
@@ -180,7 +180,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
-            Ouais l'équipe
+            Ouais l&apos;équipe
           </h2>
           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
             Ajoutez moi sur snap : FumeurDeShkeks56bzh
