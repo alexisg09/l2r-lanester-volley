@@ -24,18 +24,18 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div className="lg:w-1/5 w-[75%] fixed left-0 top-0 flex justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static rounded-[100%] lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
+    <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:p-24">
+      <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-between">
+        <div className="lg:w-1/5 w-[60%] fixed lg:static top-0 left-0 flex justify-center lg:justify-start border-b lg:border-none border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit rounded-full lg:rounded-none lg:bg-gray-200 lg:dark:bg-zinc-800/30">
           <img
             src="LOGOVOLLEY.png"
             alt="Logo Les 2 rivières Lanester Volley"
-            className="lg:w-full w-[75%]"
+            className="w-full lg:w-[80%]"
           />
         </div>
       </div>
-      <div className="w-full h-full justify-center relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <div className="flex w-[500px] h-[500px]">
+      <div className="w-full lg:w-4/5 flex justify-center lg:justify-center mt-24 lg:mt-0">
+        <div className="relative w-full h-[300px] lg:h-[500px] flex justify-center items-center">
           {images.map((image, index) => (
             <Image
               key={index}
@@ -49,12 +49,9 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+      <div className="w-full mt-8 lg:mt-16 grid text-center lg:text-left lg:grid-cols-4 gap-4">
+        <div
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             Horaires
@@ -62,13 +59,10 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             De 6h du sbah jusqu&apos;à ce que l&apos;alarme du gymnase se lance
           </p>
-        </a>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+        <div
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             Prix
@@ -92,13 +86,10 @@ export default function Home() {
             </li>
 
           </ul>
-        </a>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <div
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             Réseaux
@@ -171,13 +162,10 @@ export default function Home() {
               Le nouveau pont là{' '}
             </a>
           </p>
-        </a>
+        </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <div
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             Ouais l&apos;équipe
@@ -185,8 +173,94 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
             Ajoutez moi sur snap : FumeurDeShkeks56bzh
           </p>
-        </a>
+        </div>
       </div>
+      <table className="w-full rounded-lg border-collapse border-hidden">
+        <tbody className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30        ">
+          <tr className="border border-gray-300">
+            <th className="border border-gray-300">Lundi</th>
+            <th className="border border-gray-300">Mardi</th>
+            <th className="border border-gray-300">Mercredi</th>
+            <th className="border border-gray-300">Vendredi</th>
+            <th className="border border-gray-300">Samedi</th>
+          </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300">
+              <div className="flex flex-row justify-between p-2">
+                <span className="">9h-10h30 <span className="italic">Salle Léo Lagrange </span><span className="font-bold">M9 à M15</span></span>
+                <span className="border-r-[1px] border-white"></span>
+                <span className="">9h-10h30 <span className="italic">Salle Jean Zay </span><span className="font-bold">M18M</span></span>
+              </div>
+            </td>
+          </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300">
+              <span className="">16h-17h <span className="italic">H. Wallon </span><span className="font-bold">M11 + M9</span></span>
+            </td>
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300"></td>
+          </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300">
+            </td>
+            <td className="border border-gray-300">
+              <span className="">17h-18h30 <span className="italic">H. Wallon </span><span className="font-bold">M13 + M15</span></span>
+            </td>
+            <td className="border border-gray-300">
+              <span className="">18h-19h30 <span className="italic">H. Wallon </span><span className="font-bold">M18F</span></span>
+            </td>
+
+            <td className="border border-gray-300"></td>
+          </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300"></td>
+            <td className="border border-gray-300">
+              <span className="">18h30-20H<span className="italic">H. Wallon </span><span className="font-bold">M18</span></span>
+            </td>
+            <td className="border border-gray-300">
+            </td>
+            <td className="border border-gray-300">
+              <span className="">18h30-20H<span className="italic">H. Wallon </span><span className="font-bold">M18</span></span>
+            </td>
+            <td className="border border-gray-300">19h30 / 21h
+              H. Wallon
+              M18F
+            </td>
+            <td className="border border-gray-300"></td>
+          </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300">20h45/22h45
+              Léo
+              R2M + D1M
+            </td>
+            <td className="border border-gray-300">20h45 / 22h45
+              J. Zay
+              PNF + Loisirs
+            </td>
+            <td className="border border-gray-300">
+              <div className="flex flex-row justify-between p-2">
+                <span className="">20h-22h <span className="italic">Salle H. Wallon </span><span className="font-bold">D1F</span></span>
+                <span className="border-r-[1px] border-white"></span>
+                <span className="">21h-23h <span className="italic">Salle L. Lagrange </span><span className="font-bold">R2M</span></span>
+              </div>
+            </td>
+            <td className="border border-gray-300">21h/23h
+              H. Wallon
+              PNF
+            </td>
+            <td className="border border-gray-300"></td>
+          </tr>
+
+        </tbody>
+      </table>
     </main>
   );
 }
